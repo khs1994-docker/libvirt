@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: libvirt
         run: |
-          systemctl start libvirtd
+          sudo systemctl start libvirtd
