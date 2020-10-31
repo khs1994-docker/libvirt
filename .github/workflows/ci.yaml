@@ -1,0 +1,12 @@
+on:
+  push
+
+name: fcos
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: libvirt
+        run: |
+          systemctl start libvirtd
