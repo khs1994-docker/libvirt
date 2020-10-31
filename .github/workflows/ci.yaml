@@ -9,4 +9,12 @@ jobs:
     steps:
       - name: libvirt
         run: |
+          sudo apt install -y virtinst
+          sudo apt install -y libvirt-daemon-system
+
+          {
+            echo 'user = "root"'
+            echo 'group = "root"'
+          } | sudo tee -a /etc/libvirt/qemu.conf
+
           sudo systemctl start libvirtd
