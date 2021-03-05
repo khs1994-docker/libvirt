@@ -5,16 +5,25 @@ name: fcos
 
 jobs:
   ci:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-${{matrix.os}}
+    strategy:
+      matrix:
+        os:
+          - 20.04
+          - 16.04
+          - 18.04
     steps:
       - name: libvirt
         run: |
-          sudo apt install -y virtinst
-          sudo apt install -y libvirt-daemon-system
+          # sudo apt install -y virtinst
+          # sudo apt install -y libvirt-daemon-system
 
           {
             echo 'user = "root"'
             echo 'group = "root"'
           } | sudo tee -a /etc/libvirt/qemu.conf
 
-          sudo systemctl start libvirtd
+          # sudo systemctl start libvirtd
+
+          sudo apt show libseccomp2
+          sudo apt show moby-containerd
