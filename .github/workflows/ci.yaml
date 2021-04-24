@@ -24,6 +24,8 @@ jobs:
           # } | sudo tee -a /etc/libvirt/qemu.conf
 
           # sudo systemctl start libvirtd
+          
+          command -v kubectl
 
           sudo apt show libseccomp2
           sudo apt show moby-containerd
